@@ -39,6 +39,8 @@ QoS profile:
 
 
 
+라즈베리파이에서 시리얼 포트 사용할 땐 sudo usermod -a -G dialout $USER 해야 접근 가능
+
 
 2. mpu6050
 
