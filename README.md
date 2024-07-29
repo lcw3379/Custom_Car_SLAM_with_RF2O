@@ -13,7 +13,7 @@ Topic type: sensor_msgs/msg/LaserScan
 Endpoint type: PUBLISHER
 GID: 01.0f.61.7c.9f.50.39.10.01.00.00.00.00.00.12.03.00.00.00.00.00.00.00.00
 QoS profile:
-  Reliability: BEST_EFFORT
+  ### Reliability: BEST_EFFORT
   History (Depth): UNKNOWN
   Durability: VOLATILE
   Lifespan: Infinite
@@ -29,7 +29,7 @@ Topic type: sensor_msgs/msg/LaserScan
 Endpoint type: SUBSCRIPTION
 GID: 01.0f.61.7c.7e.50.10.9a.01.00.00.00.00.00.1b.04.00.00.00.00.00.00.00.00
 QoS profile:
-  Reliability: RELIABLE
+  ### Reliability: RELIABLE
   History (Depth): UNKNOWN
   Durability: VOLATILE
   Lifespan: Infinite
@@ -41,3 +41,5 @@ QoS profile:
 
 
 2. mpu6050
+
+
