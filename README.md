@@ -23,6 +23,11 @@ LOAM의 논문엔 3D lidar 센서의 포인트클라우드를 토대로 odometry
 
 https://github.com/MAPIRlab/rf2o_laser_odometry
 
-실제로 odometry가 정확히 만들어지는 걸 확인할 수 있었다. 이걸 토대로 실내 환경에서 직접 cartographer slam와 navigation을 해 보고, 직접 짠 path planning 알고리즘을 적용해 보아야 겠다.
+![Screenshot from 2024-08-06 21-26-31](https://github.com/user-attachments/assets/07b8cbe4-ca91-486f-ac73-da04c0b3b5ba)
+
+
+
+
+실제로 odometry가 지금까지 만든 것 중에서 가장 정확히 만들어지는 걸 확인할 수 있었다. 이걸 토대로 실내 환경에서 직접 cartographer slam와 navigation을 해 보고, 직접 짠 path planning 알고리즘을 적용해 보아야 겠다.
 
 이미 필터링 중인 imu는 odometry 데이터에 참고용으로만 사용하고, 거의 대부분의 상황에서는 rf2o 노드에서 생성된 odometry를 활용할 계획이다.
