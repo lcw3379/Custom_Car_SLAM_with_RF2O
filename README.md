@@ -19,7 +19,7 @@ rviz에서 시각화할땐 qos의 reliability가 서로 다르므로 rviz의 토
 
 아니 이러면, 달랑 저가의 2D lidar센서 하나만으로도 odometry를 생성하고, 그걸 토대로 slam까지 꽤 정확하게 할 수 있지 않을까? 라는 생각이 들었다.
 
-LOAM의 논문엔 3D lidar 센서의 포인트클라우드를 토대로 odometry를 만든다. 이걸 2d lidar로 만들어놓은 것이 없나 찾아보다가 이미 패키지로 만들어놓은 것을 발견했다.
+LOAM의 논문엔 3D lidar 센서의 포인트클라우드를 토대로 odometry를 만든다. 2d lidar에서도 odometry를 생성하도록 만들어놓은 것이 없나 찾아보다가 이미 패키지로 만들어놓은 것을 발견했다.
 
 https://github.com/MAPIRlab/rf2o_laser_odometry
 
