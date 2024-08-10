@@ -12,8 +12,7 @@ rviz에서 시각화할땐 qos의 reliability가 서로 다르므로 rviz의 토
 
 2. mpu6050
 
-현재 가지고 있는 로봇 자동차 바퀴에 엔코더가 달려있지 않았다.
-그래서 처음에는 엔코더 없이 LiDAR센서와 imu센서만으로 cartographer slam을 하는 방법을 찾았다.
+현재 가지고 있는 로봇 자동차 바퀴에 엔코더가 달려있지 않았다. 그래서 몇 달 전에 공부할 때엔 Gmapping 등의 SLAM엔 odometry 데이터가 꼭 필요하다고 들어서, 이 로봇으로는 SLAM은 무리인가 하고 잠시 진행을 멈추었다가, 다시 엔코더 없이 LiDAR센서와 imu센서만으로 Cartographer SLAM을 하는 방법을 찾았다.
 
 그러기 위해서 imu센서를 필터링하는 한편, odometry 방법을 찾아보던 중에 LiDAR 레이저 센서의 데이터로 odometry를 생성하는 기술을 알게 되었다.
 
