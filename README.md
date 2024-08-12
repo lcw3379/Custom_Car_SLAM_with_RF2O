@@ -19,11 +19,15 @@ rviz에서 시각화할땐 qos의 reliability가 서로 다르므로 rviz의 토
 
 그러기 위해서 imu센서를 필터링하는 한편, odometry 방법을 찾아보던 중에 LiDAR 레이저 센서의 데이터로 odometry를 생성하는 기술을 알게 되었다.
 
+# 2. RF2O
+
 아니 이러면, 달랑 저가의 2D lidar센서 하나만으로도 odometry를 생성하고, 그걸 토대로 slam까지 꽤 정확하게 할 수 있지 않을까? 라는 생각이 들었다.
 
 LOAM의 논문엔 3D lidar 센서의 포인트클라우드를 토대로 odometry를 만든다. 2d lidar에서도 odometry를 생성하도록 만들어놓은 것이 없나 찾아보다가 이미 패키지로 만들어놓은 것을 발견했다.
 
 https://github.com/MAPIRlab/rf2o_laser_odometry
+
+소스코드를 분석해서 어떤 방식으로 돌아가는 건지 알아야겠다.
 
 ![Screenshot from 2024-08-06 21-26-31](https://github.com/user-attachments/assets/07b8cbe4-ca91-486f-ac73-da04c0b3b5ba)
 
@@ -45,7 +49,12 @@ https://github.com/MAPIRlab/rf2o_laser_odometry
 
 
 
+![room](https://github.com/user-attachments/assets/8bcfd0a5-6964-42b8-a913-5b8f4f706528)
 
 
 
+
+2d lidar 데이터만으로도 위치/방향 추종이 굉장히 잘 되는 것을 확인할 수 있었다.
+
+TF 데이터는 SLAM의 시작지점에서부터 현재의 위치/방향을 나타낸다.
    
