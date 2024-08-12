@@ -1,16 +1,19 @@
-# custom_car
 
-1. yd lidar
+![makers](https://github.com/user-attachments/assets/6f040cfa-538c-4613-9866-843d29bf81d0)
+
+
+
+이전에 자율주행차 교육용으로 받은 메이커스의 자율주행차 모델이 있다. 이 모델을 개조해서 직접 slam을 해보려 한다.
+
+
+# 1. yd lidar
 
 ros2 humble에서 yd lidar_ros2_driver를 설치할 때엔 humble용 브랜치로 설정하고 설치
 https://github.com/YDLIDAR/ydlidar_ros2_driver/tree/humble
 
 rviz에서 시각화할땐 qos의 reliability가 서로 다르므로 rviz의 토픽 설정에서 reliable을 best_effort로 바꿔주면 됨
 
-라즈베리파이에서 시리얼 포트 사용할 땐 sudo usermod -a -G dialout $USER 해야 접근 가능
-
-
-2. mpu6050
+라즈베리파이에서 시리얼 포트를 처음 사용할 땐 sudo usermod -a -G dialout $USER 해야 접근 가능
 
 현재 가지고 있는 로봇 자동차 바퀴에 엔코더가 달려있지 않았다. 그래서 몇 달 전에 공부할 때엔 Gmapping 등의 SLAM엔 odometry 데이터가 꼭 필요하다고 들어서, 이 로봇으로는 SLAM은 무리인가 하고 잠시 진행을 멈추었다가, 다시 엔코더 없이 LiDAR센서와 imu센서만으로 Cartographer SLAM을 하는 방법을 찾았다.
 
@@ -30,3 +33,19 @@ https://github.com/MAPIRlab/rf2o_laser_odometry
 실제로 odometry가 지금까지 만든 것 중에서 가장 정확히 만들어지는 걸 확인할 수 있었다. 이걸 토대로 실내 환경에서 직접 cartographer slam와 navigation을 해 보고, 직접 짠 path planning 알고리즘을 적용해 보아야 겠다.
 
 이미 필터링 중인 imu는 odometry 데이터에 참고용으로만 사용하고, 거의 대부분의 상황에서는 rf2o 노드에서 생성된 odometry를 활용할 계획이다.
+
+
+# 3. custom car
+
+
+
+
+기존의 자동차 모델을 개조하여 오렌지파이 보드를 빼고 라즈베리파이 보드와 lidar를 장착한 모습이다.
+
+
+
+
+
+
+
+   
