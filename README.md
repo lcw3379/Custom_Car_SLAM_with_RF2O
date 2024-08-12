@@ -43,6 +43,8 @@ https://github.com/MAPIRlab/rf2o_laser_odometry
 
 
 
+![customcar](https://github.com/user-attachments/assets/9551cdc7-a489-4b5d-ae72-5bcc4c1c343e)
+
 
 기존의 자동차 모델을 개조하여 오렌지파이 보드를 빼고 라즈베리파이 보드와 lidar를 장착한 모습이다.
 
