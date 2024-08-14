@@ -62,7 +62,7 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 ![image](https://github.com/user-attachments/assets/8cd0b12d-f2a0-4b48-9084-fc825d9f02da)
 
-이때 앱실론 ![image](https://github.com/user-attachments/assets/67e2ad89-f621-47a9-9b49-679023973ac6) 을 x,y축에서의 속도와 z축 각속도로 정의했다.
+이때 ![image](https://github.com/user-attachments/assets/67e2ad89-f621-47a9-9b49-679023973ac6) 을 x,y축에서의 속도와 z축 각속도로 정의했다.
 
 이 식들을 range flow constraint equation 에 넣고 정리하면 다음과 같이 나온다.
 
