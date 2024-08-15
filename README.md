@@ -76,11 +76,21 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 ![image](https://github.com/user-attachments/assets/f166edf8-1451-4d13-9e23-0db3a50b39b8)
 
-그리고 모든 geometric residuals를 최소화 하기 위해, Robust Function인 F라고 하는 함수를 정의했다. 이때 F는 Cauchy M-estimator 라 하고, k는 조정 가능한 값이라고 한다.
+그리고 모든 geometric residuals를 최소화 하기 위해, Robust Function인 F라고 하는 함수를 정의했다. 이때 F는 Cauchy M-estimator 라 하고, k는 조정 가능한 값이다.
 
 ![image](https://github.com/user-attachments/assets/037b91db-b637-4fd1-8396-1ca92788ddbe)
 
-이것의 최적화 문제는 이미 Iteratively Reweighted Least Squares (IRLS)로 풀려 있고,
+이것의 최적화 문제는 이미 Iteratively Reweighted Least Squares (IRLS)로 풀려 있고, 가중치는 다음과 같다.
+
+![image](https://github.com/user-attachments/assets/647653f8-d256-4fca-859d-0f60ab2170a6)
+
+하지만 이렇게 만든 Cauchy M-estimator도 오차를 완전히 없앨 수는 없어서 Pre-weighting strategy 라는 방법을 제안했다. 2번에서의 테일러 전개를 2차로 확장하였다.
+
+![image](https://github.com/user-attachments/assets/da1c8fbd-71a1-4e56-8d2a-2c19a6cfffd0)
+
+
+이때 ![image](https://github.com/user-attachments/assets/39634410-883c-4284-83cb-fbdf497788be) 가 (3)의 선형 편차를 감지할 수 있다.
+
 
 
 
