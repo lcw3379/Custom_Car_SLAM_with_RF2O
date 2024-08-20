@@ -89,7 +89,15 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 ![image](https://github.com/user-attachments/assets/da1c8fbd-71a1-4e56-8d2a-2c19a6cfffd0)
 
 
-이때 ![image](https://github.com/user-attachments/assets/39634410-883c-4284-83cb-fbdf497788be) 가 (3)의 선형 편차를 감지할 수 있다.
+이때 ![image](https://github.com/user-attachments/assets/39634410-883c-4284-83cb-fbdf497788be) 에서 R2o의 2차 도함수로 (3)의 선형 편차를 감지할 수 있다고 한다.
+
+
+
+(추가!)
+
+비선형성과 불연속성에 패널티를 주기 위해 해당 논문은 다음과 같은 사전 가중치 함수를 정의했다.
+
+![image](https://github.com/user-attachments/assets/b2ca00e5-b412-48e7-8032-7d820f47da2e)
 
 
 
@@ -101,10 +109,7 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 
 
-
-
-
-간단히 2D Laserscan 데이터로 오도메트리 데이터를 생성하기에 이론도 간단할 줄 알았는데, 배우지 못한 여러 최적화 기법들이 많이 사용될 줄은 몰랐다.
+간단히 2D Laserscan 데이터로 오도메트리 데이터를 생성하기에 이론도 간단할 줄 알았는데, 배우지 못한 여러 수학적 최적화 기법들이 많이 사용될 줄은 몰랐다. 역시 논문은 어렵다...
 
 ![Screenshot2](https://github.com/user-attachments/assets/07b8cbe4-ca91-486f-ac73-da04c0b3b5ba)
 
