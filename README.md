@@ -121,20 +121,22 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 그럼 논문의 이해를 위해 rf2o 코드를 살펴보았다.
 
-![image](https://github.com/user-attachments/assets/65ddde30-350e-4e61-9a92-cdd536b6a1b6)
+![image](https://github.com/user-attachments/assets/fa4b55f4-257a-49a3-a7a6-9c1b7964a5c8)
 
-![image](https://github.com/user-attachments/assets/f362a833-acc7-459a-85e2-7ab23c6679dc)
+![image](https://github.com/user-attachments/assets/ab5141a8-8842-4f66-bbd6-1e8b7f1e08f8)
 
-핵심 함수인  CLaserOdometry2D::odometryCalculation 함수이다.
 
-순서대로 
+rf2o 패키지의 핵심 함수인  CLaserOdometry2D::odometryCalculation 함수이다.
 
+가장 먼저 이미지 피라미드를 생성하고, 이미지 레벨을 생성한 후 warping을 하는 걸 볼 수 있다.
+
+그 후 좌표계 계산(아마도 논문의 α로 예상된다.), null 포인트 찾기, 미분계산, 노말 계산(어째선지 생략되었다.), 가중치 계산까지 하고, solveSystemNonLinear로 odometry를 계산하는 걸 볼 수 있다.
 
 
 
 ![Screenshot2](https://github.com/user-attachments/assets/07b8cbe4-ca91-486f-ac73-da04c0b3b5ba)
 
-실제로 odometry가 지금까지 만든 것 중에서 가장 정확히 만들어지는 걸 확인할 수 있었다. 이걸 토대로 실내 환경에서 직접 자동차에 라이다 센서를 장착해서 cartographer slam을 해 보아야 겠다.
+실제로 현재 가진 ydlidar x4로도 odometry가 지금까지 만든 것 중에서 가장 정확히 만들어지는 걸 확인할 수 있었다. 이걸 토대로 실내 환경에서 직접 자동차에 라이다 센서를 장착해서 cartographer slam을 해 보아야 겠다.
 
 이미 필터링 중인 imu는 나중에 다른 프로젝트를 하면 사용하도록 하고, 현재는 rf2o 노드에서 생성된 odometry를 활용할 계획이다.
 
@@ -153,7 +155,7 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 
 
-확실히 실내에서 작동하는 로봇은 간단한 2d lidar 데이터만으로도 위치/방향 추종이 굉장히 잘 되어 odometry와 SLAM이 가능했다.
+확실히 실내에서 작동하는 로봇은 간단한 2d lidar 데이터만으로도 위치/방향 추종이 굉장히 잘 되어 odometry추정과 SLAM이 가능했다.
 
 TF 데이터는 SLAM의 시작지점에서부터 현재의 위치/방향을 나타낸다.
 
