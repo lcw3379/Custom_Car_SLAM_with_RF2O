@@ -79,7 +79,7 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 그리고 모든 geometric residuals를 최소화 하기 위해, Robust Function인 F라고 하는 함수를 정의했다. 이때 F는 Cauchy M-estimator 라 하고, k는 조정 가능한 값이다.
 
-![image](https://github.com/user-attachments/assets/037b91db-b637-4fd1-8396-1ca92788ddbe)
+![image](https://github.com/user-attachments/assets/56660a6f-e26d-4ce8-8ffd-a1ab6442eb52)
 
 이것의 최적화 문제는 이미 Iteratively Reweighted Least Squares (IRLS)로 풀려 있고, 가중치는 다음과 같다.
 
@@ -94,7 +94,7 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 
 
-(추가!)
+# (추가!)
 
 비선형성과 불연속성에 패널티를 주기 위해 해당 논문은 다음과 같은 사전 가중치 함수를 정의했다.
 
@@ -109,12 +109,28 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 ![image](https://github.com/user-attachments/assets/e08ba269-8031-4418-871c-62fda9b5decf)
 
+이것이 (10)과 (11)에 따라 최소화 된다.
 
+다음으로 R0과 R1을 두 개의 연속 레이저 스캔이라고 가정하면, 가장 먼저 R0와 R1을 연속적으로 다운샘플링 해서 가우시안 피라미드를 만들어야 한다.
 
+이때 가우시안 마스크를 필터로 주로 사용하는데, 이번과 같은 범위 데이터에선 이게 최적의 선택이 아니다. 따라서 bilateral filter(쌍방 필터)를 대안으로 사용한다.
 
 
 
 간단히 2D Laserscan 데이터로 오도메트리 데이터를 생성하기에 이론도 간단할 줄 알았는데, 배우지 못한 여러 수학적 기법들이 많이 사용될 줄은 몰랐다. 역시 논문은 어렵다...
+
+그럼 논문의 이해를 위해 rf2o 코드를 살펴보았다.
+
+![image](https://github.com/user-attachments/assets/65ddde30-350e-4e61-9a92-cdd536b6a1b6)
+
+![image](https://github.com/user-attachments/assets/f362a833-acc7-459a-85e2-7ab23c6679dc)
+
+핵심 함수인  CLaserOdometry2D::odometryCalculation 함수이다.
+
+순서대로 
+
+
+
 
 ![Screenshot2](https://github.com/user-attachments/assets/07b8cbe4-ca91-486f-ac73-da04c0b3b5ba)
 
