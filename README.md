@@ -42,7 +42,8 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 여기서 뒤쪽 항인 O는 무시하고, 양변을 Δt로 나누고 정리하면 다음과 같이 나타낼 수 있다.
 
-![image](https://github.com/user-attachments/assets/70b17220-c095-4292-a6ad-1d9af2361ac8)
+![image](https://github.com/user-attachments/assets/74896bac-4429-4bc7-a34a-c67e0c08ea59)
+
 
 단, ΔR, Rt, Ra는 다음과 같다.
 
@@ -101,15 +102,19 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 
 
+이때 Kd는 1차와 2차도함수의 상대적 연관도, ![image](https://github.com/user-attachments/assets/b62c980f-bf10-4e85-9e6a-290772844e03) 는 singular case를 피하기 위한 상수라 한다.
+
+
+따라서 이 residuals들에 가중치를 다음과 같이 부여했다.
+
+![image](https://github.com/user-attachments/assets/e08ba269-8031-4418-871c-62fda9b5decf)
 
 
 
 
 
 
-
-
-간단히 2D Laserscan 데이터로 오도메트리 데이터를 생성하기에 이론도 간단할 줄 알았는데, 배우지 못한 여러 수학적 최적화 기법들이 많이 사용될 줄은 몰랐다. 역시 논문은 어렵다...
+간단히 2D Laserscan 데이터로 오도메트리 데이터를 생성하기에 이론도 간단할 줄 알았는데, 배우지 못한 여러 수학적 기법들이 많이 사용될 줄은 몰랐다. 역시 논문은 어렵다...
 
 ![Screenshot2](https://github.com/user-attachments/assets/07b8cbe4-ca91-486f-ac73-da04c0b3b5ba)
 
