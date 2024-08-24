@@ -30,6 +30,9 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 # 3. 논문 분석
 
+
+### 1.  LIDAR VELOCITY AND 2D RANGE FLOW
+
 스캔 범위 R(t,α) 를 정의한다. 이때 t는 시간, α는 scan coordinate 이다.
 
 ![image](https://github.com/user-attachments/assets/3f331ff4-8fa1-4248-a5dc-e8d20d948c63)
@@ -70,6 +73,8 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 ![image](https://github.com/user-attachments/assets/b64e0763-8dfc-419a-a64a-6f8844166cdf)
 
 이때, 3개의 선형으로 독립된 제한요소(x방향 속도, y방향 속도, 각속도)들이 있으면 이론적으로는 추정하기에 충분하다. 
+
+### 2. VELOCITY ESTIMATION
 
 하지만 센서의 노이즈와 테일러 급수의 근사 등의 이유로 실제로는 추정이 불가능하다고 한다.
 
@@ -113,11 +118,38 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 다음으로 R0과 R1을 두 개의 연속 레이저 스캔이라고 가정하면, 가장 먼저 R0와 R1을 연속적으로 다운샘플링 해서 가우시안 피라미드를 만들어야 한다.
 
-이때 가우시안 마스크를 필터로 주로 사용하는데, 이번과 같은 범위 데이터에선 이게 최적의 선택이 아니다. 따라서 bilateral filter(쌍방 필터)를 대안으로 사용한다.
+이때 가우시안 마스크를 필터로 주로 사용하는데, 주로 RGB나 그레이스케일 이미지를 다운샘플링 하는데에 쓰이기 때문에 범위 데이터에선 최적의 선택이 아니다. 따라서 bilateral filter(쌍방 필터)를 대안으로 사용한다.
+
+피라미드가 완성되면, 속도 추정 문제가 coarest 수준에서 finest 수준까지 반복하면서 해결된다.
+
+이때, 반복할 때마다 이전에서 추정한 속도 ξp에 따라서 두 입력 스캔 중 하나는 warping을 해야 한다고 하고, 논문의 공식에서는 R1에 적용된다.
+
+먼저, R1의 모든 점 P 는 ξp와 관련한 강체 운동을 사용해서 공간적으로 변환된다.
+
+![image](https://github.com/user-attachments/assets/350de071-3d03-49cf-848e-8f2c3e435a1c)
+
+다음으로, 이걸 다시 R1으로 재투영해서 warping된 스캔 Rw1을 만든다.
+
+![image](https://github.com/user-attachments/assets/38bd1a50-b246-44f7-b616-823c192ca56d)
+
+
+### 3. IMPLEMENTATION
+
+원래 고정된 이산 공식(fixed discrete formula)가 스캔이나 이미지 그라디언트를 근사화 하기 위해서 주로 사용된다고 한다. 논문은 이것 대신에 환경의 기하학적 요소를 고려하는 적응 공식(adaptive formula)을 사용한다고 한다.
+
+![image](https://github.com/user-attachments/assets/7ebfe682-749c-4d32-a076-c80b3d06930d)
 
 
 
-간단히 2D Laserscan 데이터로 오도메트리 데이터를 생성하기에 이론도 간단할 줄 알았는데, 배우지 못한 여러 수학적 기법들이 많이 사용될 줄은 몰랐다. 역시 논문은 어렵다...
+
+
+
+
+
+
+
+
+간단히 2D Laserscan 데이터로 오도메트리 데이터를 생성하기에 이론도 간단할 줄 알았는데, 배우지 못한 여러 수학적 기법들이 많이 사용될 줄은 몰랐다. 
 
 그럼 논문의 이해를 위해 rf2o 코드를 살펴보았다.
 
