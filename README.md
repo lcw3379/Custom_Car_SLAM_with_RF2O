@@ -35,7 +35,8 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 스캔 범위 R(t,α) 를 정의한다. 이때 t는 시간, α는 scan coordinate 이다.
 
-![image](https://github.com/user-attachments/assets/3f331ff4-8fa1-4248-a5dc-e8d20d948c63)
+![image](https://github.com/user-attachments/assets/f974151b-b7bf-4680-8bb6-8849d5a2fe72)
+
 
 ![image](https://github.com/user-attachments/assets/accd11d9-1250-4a39-ac8b-94f00d57d123)
 
@@ -90,7 +91,7 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 ![image](https://github.com/user-attachments/assets/647653f8-d256-4fca-859d-0f60ab2170a6)
 
-하지만 이렇게 만든 Cauchy M-estimator도 오차를 완전히 없앨 수는 없어서 Pre-weighting strategy 라는 방법을 제안했다. 2번에서의 테일러 전개를 2차로 확장하였다.
+하지만 이렇게 만든 Cauchy M-estimator도 오차를 완전히 없앨 수는 없어서 Pre-weighting strategy 라는 방법을 제안했다. (2)에서의 테일러 전개를 2차로 확장하였다.
 
 ![image](https://github.com/user-attachments/assets/da1c8fbd-71a1-4e56-8d2a-2c19a6cfffd0)
 
