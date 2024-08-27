@@ -35,10 +35,13 @@ Planar Odometry from a Radial Laser Scanner. A Range Flow-based Approach 이라�
 
 스캔 범위 R(t,α) 를 정의한다. 이때 t는 시간, α는 scan coordinate 이다.
 
-![image](https://github.com/user-attachments/assets/f974151b-b7bf-4680-8bb6-8849d5a2fe72)
-
+스캔의 점 P가 어느 위치에 있던 극좌표 (r,θ)로 표현이 가능하다.
 
 ![image](https://github.com/user-attachments/assets/accd11d9-1250-4a39-ac8b-94f00d57d123)
+
+N은 스캔의 크기이고, FOV는 scanner field of view 이다. 라이다에서 P가 보이면 스캔좌표계 α에서 각도 좌표로 관찰될 수 있다.
+
+![image](https://github.com/user-attachments/assets/f974151b-b7bf-4680-8bb6-8849d5a2fe72)
 
 첫 스캔에서 R의 위치와 다음 스캔에서 스캔 범위 R은 테일러 전개에 의해 다음과 같이 표현된다.
 
